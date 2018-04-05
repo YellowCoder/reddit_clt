@@ -1,8 +1,10 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export function apiFetchSubreddit(subreddit) {
+export function apiFetchSubreddit(subredditPath) {
   return axios({
     method: 'GET',
-    url: `https://www.reddit.com/r/${ subreddit }.json`
-  })
+    url: `https://www.reddit.com/${subredditPath}`
+  });
 }
+
+export default apiFetchSubreddit;
