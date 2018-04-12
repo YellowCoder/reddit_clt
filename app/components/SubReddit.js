@@ -8,9 +8,13 @@ export default class SubReddit extends Component<Props> {
   props: Props;
 
   render() {
+    const { post } = this.props
+
     return (
       <div className={styles.container}>
-        <h2>Home</h2>
+        <div className={styles.title}>
+          { post.title }
+        </div>
       </div>
     );
   }

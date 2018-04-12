@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import styles from './SubReddit.css';
+import { Link } from 'react-router-dom';
 
 type Props = {
   defaultSubReddits: Array,
@@ -18,8 +19,13 @@ export default class SubReddit extends Component<Props> {
         {
           defaultSubReddits.map((subredditItem, index) => {
             return (
-              <div key={ index } onClick={() => subRedditClicked(subredditItem)}>
-                { subredditItem.name }
+              <div key={index}>
+                <Link to={{
+                  pathname: `/subreddit/${subredditItem.name}`,
+                  params: {...subredditItem},
+                }}>
+                  { subredditItem.name }
+                </Link>
               </div>
             )
           })
