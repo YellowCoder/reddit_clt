@@ -26,7 +26,7 @@ export default class SubRedditPage extends Component<Props> {
   }
 
   fetchPosts(subreddit) {
-    if (!subreddit) return
+    if (!subreddit) return;
 
     apiFetchSubreddit(subreddit.path)
       .then((response) => {
@@ -34,16 +34,16 @@ export default class SubRedditPage extends Component<Props> {
           list: response.data.data.children,
           isLoading: false,
           subreddit
-        })
-      })
+        });
+      });
   }
 
   renderList(list) {
     return list.map((post) => {
-      return(
+      return (
         <SubReddit key={post.data.id} post={post.data} />
-      )
-    })
+      );
+    });
   }
 
   render() {
